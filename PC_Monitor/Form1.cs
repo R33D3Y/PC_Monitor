@@ -14,6 +14,8 @@ namespace PC_Monitor
         private PerformanceCounter diskReadsPerSec = new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", "_Total");
         private PerformanceCounter diskWritesPerSec = new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", "_Total");
 
+        private int tempLimit = 3;
+
         public MainScreen()
         {
             InitializeComponent();
@@ -260,11 +262,32 @@ namespace PC_Monitor
             {
                 circularProgressBarGPURPM.ProgressColor = Color.LimeGreen;
             }
+
+            if (gpuTemp > 35 && (gpuRPM <= (gpuTemp - tempLimit)))
+            {
+                groupBoxGPU.ForeColor = Color.Red;
+            }
+
+            else
+            {
+                groupBoxGPU.ForeColor = SystemColors.ControlText;
+            }
         }
 
         private void MainScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
             //SaveFile();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            TempMessageBox msg = new TempMessageBox();
+            msg.ShowDialog();
+
+            if (msg.DialogResult == DialogResult.OK)
+            {
+                tempLimit = msg.GetDiff();
+            }
         }
     }
 }

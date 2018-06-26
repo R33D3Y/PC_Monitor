@@ -67,9 +67,9 @@
             this.geckoWebBrowserCapital = new Gecko.GeckoWebBrowser();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.geckoWebBrowserCalc = new Gecko.GeckoWebBrowser();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.geckoWebBrowserYoutube = new Gecko.GeckoWebBrowser();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -288,6 +288,7 @@
             this.label5.Size = new System.Drawing.Size(49, 25);
             this.label5.TabIndex = 6;
             this.label5.Text = "Fan";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label3
             // 
