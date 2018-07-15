@@ -2,7 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Management;
+using System.IO;
 using System.Windows.Forms;
 
 namespace PC_Monitor
@@ -10,9 +10,12 @@ namespace PC_Monitor
     public partial class MainScreen : Form
     {
         private Computer computer;
-        private ManagementObjectSearcher mos;
-        private PerformanceCounter diskReadsPerSec = new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", "_Total");
-        private PerformanceCounter diskWritesPerSec = new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", "_Total");
+        private PerformanceCounter disk0ReadsPerSec = new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", "2 C:");
+        private PerformanceCounter disk0WritesPerSec = new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", "2 C:");
+        private PerformanceCounter disk1ReadsPerSec = new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", "0 E:");
+        private PerformanceCounter disk1WritesPerSec = new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", "0 E:");
+        private PerformanceCounter disk2ReadsPerSec = new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", "1 F:");
+        private PerformanceCounter disk2WritesPerSec = new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", "1 F:");
 
         private int tempLimit = 3;
 
@@ -44,6 +47,12 @@ namespace PC_Monitor
             groupBoxCPU.Text = computer.Hardware[1].Name;
             groupBoxGPU.Text = computer.Hardware[2].Name;
 
+            DriveInfo[] drives = DriveInfo.GetDrives();
+            
+            groupBoxDisk0.Text = drives[0].Name + "Local Disk";
+            groupBoxDisk1.Text = drives[1].Name + drives[1].VolumeLabel;
+            groupBoxDisk2.Text = drives[2].Name + drives[2].VolumeLabel;
+
             UpdateVisuals();
 
             timer1.Interval = 1000;
@@ -54,13 +63,19 @@ namespace PC_Monitor
         {   
             UpdateVisuals();
 
-            labelRead.Text = ((diskReadsPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
-            labelWrite.Text = ((diskWritesPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+            labelReadDisk0.Text = ((disk0ReadsPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+            labelWriteDisk0.Text = ((disk0WritesPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+
+            labelReadDisk1.Text = ((disk1ReadsPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+            labelWriteDisk1.Text = ((disk1WritesPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+
+            labelReadDisk2.Text = ((disk2ReadsPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+            labelWriteDisk2.Text = ((disk2WritesPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
         }
 
         private void UpdateVisuals()
         {
-            int cpuTemp = 0; // Not Found
+            int cpuTemp = 0;
             int gpuTemp = 0;
 
             int cpuLoad = 0;
@@ -72,42 +87,9 @@ namespace PC_Monitor
             int ramLoad = 0;
             int ramUsed = 0;
             int ramAvailable = 0;
-
-            int hddTemp = 0;
-            int hddLoad = 0;
-
-            //ManagementScope scope = new ManagementScope("\\\\.\\ROOT\\cimv2");
-            //SelectQuery query = new SelectQuery("SELECT * FROM Win32_Fan");
-            //mos = new ManagementObjectSearcher(scope, query);
-
-            //foreach (ManagementObject mo in mos.Get())
-            //{
-            //    //Console.WriteLine(mo.ToString());
-
-            //    foreach (PropertyData pd in mo.Properties)
-            //    {
-            //        if (pd.Name == "DesiredSpeed")
-            //        {
-            //            Console.WriteLine("{0}: {1}", pd.Name, pd.Value);
-            //        }
-
-            //        foreach (QualifierData qd in pd.Qualifiers)
-            //        {
-            //            //Console.WriteLine(qd.Value);
-            //        }
-            //    }
-            //}
-
-
-            //ManagementObjectCollection disk = mos.Get();
             
-            //foreach (ManagementObject mo in disk)
-            //{
-            //    foreach (PropertyData prop in mo.Properties)
-            //    {
-            //        Console.WriteLine("{0}: {1}", prop.Name, prop.Value);
-            //    }
-            //}
+            int hddLoad = 0;
+            int hddCount = 0;
 
             // Get data
 
@@ -139,11 +121,33 @@ namespace PC_Monitor
                     ramUsed = (int)hardware.Sensors[1].Value;
                     ramAvailable = (int)hardware.Sensors[2].Value;
                 }
-
+                
                 if (hardware.HardwareType.ToString().ToLower().Contains("hdd"))
                 {
-                    hddTemp = (int)hardware.Sensors[0].Value;
-                    hddLoad = (int)hardware.Sensors[1].Value;
+                    foreach (ISensor sensor in hardware.Sensors)
+                    {
+                        if (sensor.SensorType == SensorType.Load)
+                        {
+                            hddLoad = (int)sensor.Value;
+
+                            if (hddCount == 0)
+                            {
+                                progressBarDisk1.Value = hddLoad;
+                            }
+
+                            else if (hddCount == 1)
+                            {
+                                progressBarDisk2.Value = hddLoad;
+                            }
+
+                            else if (hddCount == 2)
+                            {
+                                progressBarDisk0.Value = hddLoad;
+                            }
+
+                            hddCount++;
+                        }
+                    }
                 }
 
                 /*
@@ -179,12 +183,6 @@ namespace PC_Monitor
 
             circularProgressBarRAMLoad.Value = ramLoad;
             circularProgressBarRAMLoad.Text = ramLoad + "%";
-
-            circularProgressBarHDDTemp.Value = hddTemp;
-            circularProgressBarHDDTemp.Text = hddTemp + "°C";
-
-            circularProgressBarHDDLoad.Value = hddLoad;
-            circularProgressBarHDDLoad.Text = hddLoad + "%";
 
             // Colour coding
 

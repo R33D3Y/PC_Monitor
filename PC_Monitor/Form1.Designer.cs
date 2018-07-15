@@ -48,14 +48,24 @@
             this.circularProgressBarGPULoad = new CircularProgressBar.CircularProgressBar();
             this.circularProgressBarGPUTemp = new CircularProgressBar.CircularProgressBar();
             this.groupBoxHDD = new System.Windows.Forms.GroupBox();
-            this.labelRead = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.labelWrite = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.groupBoxDisk2 = new System.Windows.Forms.GroupBox();
+            this.progressBarDisk2 = new System.Windows.Forms.ProgressBar();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.circularProgressBarHDDLoad = new CircularProgressBar.CircularProgressBar();
-            this.circularProgressBarHDDTemp = new CircularProgressBar.CircularProgressBar();
+            this.labelReadDisk2 = new System.Windows.Forms.Label();
+            this.labelWriteDisk2 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.groupBoxDisk1 = new System.Windows.Forms.GroupBox();
+            this.progressBarDisk1 = new System.Windows.Forms.ProgressBar();
+            this.label10 = new System.Windows.Forms.Label();
+            this.labelReadDisk1 = new System.Windows.Forms.Label();
+            this.labelWriteDisk1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBoxDisk0 = new System.Windows.Forms.GroupBox();
+            this.progressBarDisk0 = new System.Windows.Forms.ProgressBar();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelReadDisk0 = new System.Windows.Forms.Label();
+            this.labelWriteDisk0 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBoxRAM = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Usage = new System.Windows.Forms.Label();
@@ -69,7 +79,6 @@
             this.geckoWebBrowserCalc = new Gecko.GeckoWebBrowser();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.geckoWebBrowserYoutube = new Gecko.GeckoWebBrowser();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -78,6 +87,9 @@
             this.groupBoxCPU.SuspendLayout();
             this.groupBoxGPU.SuspendLayout();
             this.groupBoxHDD.SuspendLayout();
+            this.groupBoxDisk2.SuspendLayout();
+            this.groupBoxDisk1.SuspendLayout();
+            this.groupBoxDisk0.SuspendLayout();
             this.groupBoxRAM.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -406,14 +418,9 @@
             // 
             // groupBoxHDD
             // 
-            this.groupBoxHDD.Controls.Add(this.labelRead);
-            this.groupBoxHDD.Controls.Add(this.label9);
-            this.groupBoxHDD.Controls.Add(this.labelWrite);
-            this.groupBoxHDD.Controls.Add(this.label7);
-            this.groupBoxHDD.Controls.Add(this.label11);
-            this.groupBoxHDD.Controls.Add(this.label12);
-            this.groupBoxHDD.Controls.Add(this.circularProgressBarHDDLoad);
-            this.groupBoxHDD.Controls.Add(this.circularProgressBarHDDTemp);
+            this.groupBoxHDD.Controls.Add(this.groupBoxDisk2);
+            this.groupBoxHDD.Controls.Add(this.groupBoxDisk1);
+            this.groupBoxHDD.Controls.Add(this.groupBoxDisk0);
             this.groupBoxHDD.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBoxHDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxHDD.Location = new System.Drawing.Point(688, 0);
@@ -423,123 +430,176 @@
             this.groupBoxHDD.TabStop = false;
             this.groupBoxHDD.Text = "HDD";
             // 
-            // labelRead
+            // groupBoxDisk2
             // 
-            this.labelRead.AutoSize = true;
-            this.labelRead.Location = new System.Drawing.Point(169, 102);
-            this.labelRead.Name = "labelRead";
-            this.labelRead.Size = new System.Drawing.Size(115, 25);
-            this.labelRead.TabIndex = 8;
-            this.labelRead.Text = "10.00MB/s";
+            this.groupBoxDisk2.Controls.Add(this.progressBarDisk2);
+            this.groupBoxDisk2.Controls.Add(this.label11);
+            this.groupBoxDisk2.Controls.Add(this.labelReadDisk2);
+            this.groupBoxDisk2.Controls.Add(this.labelWriteDisk2);
+            this.groupBoxDisk2.Controls.Add(this.label15);
+            this.groupBoxDisk2.Location = new System.Drawing.Point(6, 272);
+            this.groupBoxDisk2.Name = "groupBoxDisk2";
+            this.groupBoxDisk2.Size = new System.Drawing.Size(283, 114);
+            this.groupBoxDisk2.TabIndex = 11;
+            this.groupBoxDisk2.TabStop = false;
+            this.groupBoxDisk2.Text = "Disk 2";
             // 
-            // label9
+            // progressBarDisk2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(189, 68);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 25);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Read:";
+            this.progressBarDisk2.Location = new System.Drawing.Point(6, 81);
+            this.progressBarDisk2.Name = "progressBarDisk2";
+            this.progressBarDisk2.Size = new System.Drawing.Size(271, 23);
+            this.progressBarDisk2.TabIndex = 9;
             // 
-            // labelWrite
+            // label11
             // 
-            this.labelWrite.AutoSize = true;
-            this.labelWrite.Location = new System.Drawing.Point(169, 296);
-            this.labelWrite.Name = "labelWrite";
-            this.labelWrite.Size = new System.Drawing.Size(115, 25);
-            this.labelWrite.TabIndex = 6;
-            this.labelWrite.Text = "10.00MB/s";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(185, 28);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 25);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Write:";
+            // 
+            // labelReadDisk2
+            // 
+            this.labelReadDisk2.AutoSize = true;
+            this.labelReadDisk2.Location = new System.Drawing.Point(1, 53);
+            this.labelReadDisk2.Name = "labelReadDisk2";
+            this.labelReadDisk2.Size = new System.Drawing.Size(115, 25);
+            this.labelReadDisk2.TabIndex = 8;
+            this.labelReadDisk2.Text = "10.00MB/s";
+            // 
+            // labelWriteDisk2
+            // 
+            this.labelWriteDisk2.AutoSize = true;
+            this.labelWriteDisk2.Location = new System.Drawing.Point(162, 53);
+            this.labelWriteDisk2.Name = "labelWriteDisk2";
+            this.labelWriteDisk2.Size = new System.Drawing.Size(115, 25);
+            this.labelWriteDisk2.TabIndex = 6;
+            this.labelWriteDisk2.Text = "10.00MB/s";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(18, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 25);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Read:";
+            // 
+            // groupBoxDisk1
+            // 
+            this.groupBoxDisk1.Controls.Add(this.progressBarDisk1);
+            this.groupBoxDisk1.Controls.Add(this.label10);
+            this.groupBoxDisk1.Controls.Add(this.labelReadDisk1);
+            this.groupBoxDisk1.Controls.Add(this.labelWriteDisk1);
+            this.groupBoxDisk1.Controls.Add(this.label13);
+            this.groupBoxDisk1.Location = new System.Drawing.Point(6, 150);
+            this.groupBoxDisk1.Name = "groupBoxDisk1";
+            this.groupBoxDisk1.Size = new System.Drawing.Size(283, 114);
+            this.groupBoxDisk1.TabIndex = 11;
+            this.groupBoxDisk1.TabStop = false;
+            this.groupBoxDisk1.Text = "Disk 1";
+            // 
+            // progressBarDisk1
+            // 
+            this.progressBarDisk1.Location = new System.Drawing.Point(6, 81);
+            this.progressBarDisk1.Name = "progressBarDisk1";
+            this.progressBarDisk1.Size = new System.Drawing.Size(271, 23);
+            this.progressBarDisk1.TabIndex = 9;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(185, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 25);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Write:";
+            // 
+            // labelReadDisk1
+            // 
+            this.labelReadDisk1.AutoSize = true;
+            this.labelReadDisk1.Location = new System.Drawing.Point(1, 53);
+            this.labelReadDisk1.Name = "labelReadDisk1";
+            this.labelReadDisk1.Size = new System.Drawing.Size(115, 25);
+            this.labelReadDisk1.TabIndex = 8;
+            this.labelReadDisk1.Text = "10.00MB/s";
+            // 
+            // labelWriteDisk1
+            // 
+            this.labelWriteDisk1.AutoSize = true;
+            this.labelWriteDisk1.Location = new System.Drawing.Point(162, 53);
+            this.labelWriteDisk1.Name = "labelWriteDisk1";
+            this.labelWriteDisk1.Size = new System.Drawing.Size(115, 25);
+            this.labelWriteDisk1.TabIndex = 6;
+            this.labelWriteDisk1.Text = "10.00MB/s";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(18, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 25);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Read:";
+            // 
+            // groupBoxDisk0
+            // 
+            this.groupBoxDisk0.Controls.Add(this.progressBarDisk0);
+            this.groupBoxDisk0.Controls.Add(this.label7);
+            this.groupBoxDisk0.Controls.Add(this.labelReadDisk0);
+            this.groupBoxDisk0.Controls.Add(this.labelWriteDisk0);
+            this.groupBoxDisk0.Controls.Add(this.label9);
+            this.groupBoxDisk0.Location = new System.Drawing.Point(6, 30);
+            this.groupBoxDisk0.Name = "groupBoxDisk0";
+            this.groupBoxDisk0.Size = new System.Drawing.Size(283, 114);
+            this.groupBoxDisk0.TabIndex = 10;
+            this.groupBoxDisk0.TabStop = false;
+            this.groupBoxDisk0.Text = "Disk 0";
+            // 
+            // progressBarDisk0
+            // 
+            this.progressBarDisk0.Location = new System.Drawing.Point(6, 81);
+            this.progressBarDisk0.Name = "progressBarDisk0";
+            this.progressBarDisk0.Size = new System.Drawing.Size(271, 23);
+            this.progressBarDisk0.TabIndex = 9;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(189, 254);
+            this.label7.Location = new System.Drawing.Point(185, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 25);
             this.label7.TabIndex = 5;
             this.label7.Text = "Write:";
             // 
-            // label11
+            // labelReadDisk0
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(53, 257);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 25);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Used";
+            this.labelReadDisk0.AutoSize = true;
+            this.labelReadDisk0.Location = new System.Drawing.Point(1, 53);
+            this.labelReadDisk0.Name = "labelReadDisk0";
+            this.labelReadDisk0.Size = new System.Drawing.Size(115, 25);
+            this.labelReadDisk0.TabIndex = 8;
+            this.labelReadDisk0.Text = "10.00MB/s";
             // 
-            // label12
+            // labelWriteDisk0
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(51, 67);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 25);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Temp";
+            this.labelWriteDisk0.AutoSize = true;
+            this.labelWriteDisk0.Location = new System.Drawing.Point(162, 53);
+            this.labelWriteDisk0.Name = "labelWriteDisk0";
+            this.labelWriteDisk0.Size = new System.Drawing.Size(115, 25);
+            this.labelWriteDisk0.TabIndex = 6;
+            this.labelWriteDisk0.Text = "10.00MB/s";
             // 
-            // circularProgressBarHDDLoad
+            // label9
             // 
-            this.circularProgressBarHDDLoad.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.circularProgressBarHDDLoad.AnimationSpeed = 500;
-            this.circularProgressBarHDDLoad.BackColor = System.Drawing.Color.Transparent;
-            this.circularProgressBarHDDLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.circularProgressBarHDDLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.circularProgressBarHDDLoad.InnerColor = System.Drawing.SystemColors.Control;
-            this.circularProgressBarHDDLoad.InnerMargin = 2;
-            this.circularProgressBarHDDLoad.InnerWidth = -1;
-            this.circularProgressBarHDDLoad.Location = new System.Drawing.Point(6, 224);
-            this.circularProgressBarHDDLoad.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBarHDDLoad.Name = "circularProgressBarHDDLoad";
-            this.circularProgressBarHDDLoad.OuterColor = System.Drawing.Color.LightGray;
-            this.circularProgressBarHDDLoad.OuterMargin = -15;
-            this.circularProgressBarHDDLoad.OuterWidth = 10;
-            this.circularProgressBarHDDLoad.ProgressColor = System.Drawing.Color.LimeGreen;
-            this.circularProgressBarHDDLoad.ProgressWidth = 17;
-            this.circularProgressBarHDDLoad.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBarHDDLoad.Size = new System.Drawing.Size(150, 150);
-            this.circularProgressBarHDDLoad.StartAngle = 270;
-            this.circularProgressBarHDDLoad.SubscriptColor = System.Drawing.Color.Black;
-            this.circularProgressBarHDDLoad.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBarHDDLoad.SubscriptText = "";
-            this.circularProgressBarHDDLoad.SuperscriptColor = System.Drawing.Color.Black;
-            this.circularProgressBarHDDLoad.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.circularProgressBarHDDLoad.SuperscriptText = "";
-            this.circularProgressBarHDDLoad.TabIndex = 1;
-            this.circularProgressBarHDDLoad.Text = "0%";
-            this.circularProgressBarHDDLoad.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBarHDDLoad.Value = 68;
-            // 
-            // circularProgressBarHDDTemp
-            // 
-            this.circularProgressBarHDDTemp.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.circularProgressBarHDDTemp.AnimationSpeed = 500;
-            this.circularProgressBarHDDTemp.BackColor = System.Drawing.Color.Transparent;
-            this.circularProgressBarHDDTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.circularProgressBarHDDTemp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.circularProgressBarHDDTemp.InnerColor = System.Drawing.SystemColors.Control;
-            this.circularProgressBarHDDTemp.InnerMargin = 2;
-            this.circularProgressBarHDDTemp.InnerWidth = -1;
-            this.circularProgressBarHDDTemp.Location = new System.Drawing.Point(6, 30);
-            this.circularProgressBarHDDTemp.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBarHDDTemp.Name = "circularProgressBarHDDTemp";
-            this.circularProgressBarHDDTemp.OuterColor = System.Drawing.Color.LightGray;
-            this.circularProgressBarHDDTemp.OuterMargin = -15;
-            this.circularProgressBarHDDTemp.OuterWidth = 10;
-            this.circularProgressBarHDDTemp.ProgressColor = System.Drawing.Color.LimeGreen;
-            this.circularProgressBarHDDTemp.ProgressWidth = 17;
-            this.circularProgressBarHDDTemp.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBarHDDTemp.Size = new System.Drawing.Size(150, 150);
-            this.circularProgressBarHDDTemp.StartAngle = 270;
-            this.circularProgressBarHDDTemp.SubscriptColor = System.Drawing.Color.Black;
-            this.circularProgressBarHDDTemp.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBarHDDTemp.SubscriptText = "";
-            this.circularProgressBarHDDTemp.SuperscriptColor = System.Drawing.Color.Black;
-            this.circularProgressBarHDDTemp.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.circularProgressBarHDDTemp.SuperscriptText = "";
-            this.circularProgressBarHDDTemp.TabIndex = 0;
-            this.circularProgressBarHDDTemp.Text = "0°C";
-            this.circularProgressBarHDDTemp.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBarHDDTemp.Value = 68;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 25);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Read:";
             // 
             // groupBoxRAM
             // 
@@ -750,7 +810,12 @@
             this.groupBoxGPU.ResumeLayout(false);
             this.groupBoxGPU.PerformLayout();
             this.groupBoxHDD.ResumeLayout(false);
-            this.groupBoxHDD.PerformLayout();
+            this.groupBoxDisk2.ResumeLayout(false);
+            this.groupBoxDisk2.PerformLayout();
+            this.groupBoxDisk1.ResumeLayout(false);
+            this.groupBoxDisk1.PerformLayout();
+            this.groupBoxDisk0.ResumeLayout(false);
+            this.groupBoxDisk0.PerformLayout();
             this.groupBoxRAM.ResumeLayout(false);
             this.groupBoxRAM.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -769,10 +834,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBoxHDD;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private CircularProgressBar.CircularProgressBar circularProgressBarHDDLoad;
-        private CircularProgressBar.CircularProgressBar circularProgressBarHDDTemp;
         private System.Windows.Forms.GroupBox groupBoxRAM;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label Usage;
@@ -800,12 +861,25 @@
         private System.Windows.Forms.TabPage tabPage1;
         private Gecko.GeckoWebBrowser geckoWebBrowserCapital;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label labelWrite;
-        private System.Windows.Forms.Label labelRead;
+        private System.Windows.Forms.Label labelWriteDisk0;
+        private System.Windows.Forms.Label labelReadDisk0;
         private System.Windows.Forms.Label label9;
-        private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.TabPage tabPage3;
         private Gecko.GeckoWebBrowser geckoWebBrowserYoutube;
+        private System.Windows.Forms.GroupBox groupBoxDisk0;
+        private System.Windows.Forms.ProgressBar progressBarDisk0;
+        private System.Windows.Forms.GroupBox groupBoxDisk2;
+        private System.Windows.Forms.ProgressBar progressBarDisk2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelReadDisk2;
+        private System.Windows.Forms.Label labelWriteDisk2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBoxDisk1;
+        private System.Windows.Forms.ProgressBar progressBarDisk1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelReadDisk1;
+        private System.Windows.Forms.Label labelWriteDisk1;
+        private System.Windows.Forms.Label label13;
     }
 }
 
