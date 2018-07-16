@@ -287,11 +287,6 @@ namespace PC_Monitor
             }
         }
 
-        private void MainScreen_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //SaveFile();
-        }
-
         private void label5_Click(object sender, EventArgs e)
         {
             TempMessageBox msg = new TempMessageBox();

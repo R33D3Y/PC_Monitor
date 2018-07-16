@@ -49,18 +49,21 @@
             this.circularProgressBarGPUTemp = new CircularProgressBar.CircularProgressBar();
             this.groupBoxHDD = new System.Windows.Forms.GroupBox();
             this.groupBoxDisk2 = new System.Windows.Forms.GroupBox();
+            this.labelSpaceDisk2 = new System.Windows.Forms.Label();
             this.progressBarDisk2 = new System.Windows.Forms.ProgressBar();
             this.label11 = new System.Windows.Forms.Label();
             this.labelReadDisk2 = new System.Windows.Forms.Label();
             this.labelWriteDisk2 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBoxDisk1 = new System.Windows.Forms.GroupBox();
+            this.labelSpaceDisk1 = new System.Windows.Forms.Label();
             this.progressBarDisk1 = new System.Windows.Forms.ProgressBar();
             this.label10 = new System.Windows.Forms.Label();
             this.labelReadDisk1 = new System.Windows.Forms.Label();
             this.labelWriteDisk1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBoxDisk0 = new System.Windows.Forms.GroupBox();
+            this.labelSpaceDisk0 = new System.Windows.Forms.Label();
             this.progressBarDisk0 = new System.Windows.Forms.ProgressBar();
             this.label7 = new System.Windows.Forms.Label();
             this.labelReadDisk0 = new System.Windows.Forms.Label();
@@ -79,9 +82,6 @@
             this.geckoWebBrowserCalc = new Gecko.GeckoWebBrowser();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.geckoWebBrowserYoutube = new Gecko.GeckoWebBrowser();
-            this.labelSpaceDisk0 = new System.Windows.Forms.Label();
-            this.labelSpaceDisk1 = new System.Windows.Forms.Label();
-            this.labelSpaceDisk2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -448,6 +448,16 @@
             this.groupBoxDisk2.TabStop = false;
             this.groupBoxDisk2.Text = "Disk 2";
             // 
+            // labelSpaceDisk2
+            // 
+            this.labelSpaceDisk2.AutoSize = true;
+            this.labelSpaceDisk2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpaceDisk2.Location = new System.Drawing.Point(105, 86);
+            this.labelSpaceDisk2.Name = "labelSpaceDisk2";
+            this.labelSpaceDisk2.Size = new System.Drawing.Size(75, 13);
+            this.labelSpaceDisk2.TabIndex = 11;
+            this.labelSpaceDisk2.Text = "1000/1000GB";
+            // 
             // progressBarDisk2
             // 
             this.progressBarDisk2.Location = new System.Drawing.Point(6, 81);
@@ -506,6 +516,16 @@
             this.groupBoxDisk1.TabStop = false;
             this.groupBoxDisk1.Text = "Disk 1";
             // 
+            // labelSpaceDisk1
+            // 
+            this.labelSpaceDisk1.AutoSize = true;
+            this.labelSpaceDisk1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpaceDisk1.Location = new System.Drawing.Point(102, 87);
+            this.labelSpaceDisk1.Name = "labelSpaceDisk1";
+            this.labelSpaceDisk1.Size = new System.Drawing.Size(78, 13);
+            this.labelSpaceDisk1.TabIndex = 11;
+            this.labelSpaceDisk1.Text = "1000/1000 GB";
+            // 
             // progressBarDisk1
             // 
             this.progressBarDisk1.Location = new System.Drawing.Point(6, 81);
@@ -563,6 +583,16 @@
             this.groupBoxDisk0.TabIndex = 10;
             this.groupBoxDisk0.TabStop = false;
             this.groupBoxDisk0.Text = "Disk 0";
+            // 
+            // labelSpaceDisk0
+            // 
+            this.labelSpaceDisk0.AutoSize = true;
+            this.labelSpaceDisk0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpaceDisk0.Location = new System.Drawing.Point(102, 86);
+            this.labelSpaceDisk0.Name = "labelSpaceDisk0";
+            this.labelSpaceDisk0.Size = new System.Drawing.Size(78, 13);
+            this.labelSpaceDisk0.TabIndex = 10;
+            this.labelSpaceDisk0.Text = "1000/1000 GB";
             // 
             // progressBarDisk0
             // 
@@ -795,36 +825,6 @@
             this.geckoWebBrowserYoutube.TabIndex = 1;
             this.geckoWebBrowserYoutube.UseHttpActivityObserver = false;
             // 
-            // labelSpaceDisk0
-            // 
-            this.labelSpaceDisk0.AutoSize = true;
-            this.labelSpaceDisk0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpaceDisk0.Location = new System.Drawing.Point(102, 86);
-            this.labelSpaceDisk0.Name = "labelSpaceDisk0";
-            this.labelSpaceDisk0.Size = new System.Drawing.Size(78, 13);
-            this.labelSpaceDisk0.TabIndex = 10;
-            this.labelSpaceDisk0.Text = "1000/1000 GB";
-            // 
-            // labelSpaceDisk1
-            // 
-            this.labelSpaceDisk1.AutoSize = true;
-            this.labelSpaceDisk1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpaceDisk1.Location = new System.Drawing.Point(102, 87);
-            this.labelSpaceDisk1.Name = "labelSpaceDisk1";
-            this.labelSpaceDisk1.Size = new System.Drawing.Size(78, 13);
-            this.labelSpaceDisk1.TabIndex = 11;
-            this.labelSpaceDisk1.Text = "1000/1000 GB";
-            // 
-            // labelSpaceDisk2
-            // 
-            this.labelSpaceDisk2.AutoSize = true;
-            this.labelSpaceDisk2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpaceDisk2.Location = new System.Drawing.Point(105, 86);
-            this.labelSpaceDisk2.Name = "labelSpaceDisk2";
-            this.labelSpaceDisk2.Size = new System.Drawing.Size(75, 13);
-            this.labelSpaceDisk2.TabIndex = 11;
-            this.labelSpaceDisk2.Text = "1000/1000GB";
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -834,7 +834,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainScreen";
             this.Text = "PC Monitor";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainScreen_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
