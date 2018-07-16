@@ -16,6 +16,7 @@ namespace PC_Monitor
         private PerformanceCounter disk1WritesPerSec = new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", "0 E:");
         private PerformanceCounter disk2ReadsPerSec = new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", "1 F:");
         private PerformanceCounter disk2WritesPerSec = new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", "1 F:");
+        private DriveInfo[] drives = DriveInfo.GetDrives();
 
         private int tempLimit = 3;
 
@@ -46,8 +47,6 @@ namespace PC_Monitor
 
             groupBoxCPU.Text = computer.Hardware[1].Name;
             groupBoxGPU.Text = computer.Hardware[2].Name;
-
-            DriveInfo[] drives = DriveInfo.GetDrives();
             
             groupBoxDisk0.Text = drives[0].Name + "Local Disk";
             groupBoxDisk1.Text = drives[1].Name + drives[1].VolumeLabel;
@@ -63,14 +62,30 @@ namespace PC_Monitor
         {   
             UpdateVisuals();
 
-            labelReadDisk0.Text = ((disk0ReadsPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
-            labelWriteDisk0.Text = ((disk0WritesPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+            labelReadDisk0.Text = MB(disk0ReadsPerSec.NextValue()).ToString("0.00") + "MB/s";
+            labelWriteDisk0.Text = MB(disk0WritesPerSec.NextValue()).ToString("0.00") + "MB/s";
 
-            labelReadDisk1.Text = ((disk1ReadsPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
-            labelWriteDisk1.Text = ((disk1WritesPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+            labelReadDisk1.Text = MB(disk1ReadsPerSec.NextValue()).ToString("0.00") + "MB/s";
+            labelWriteDisk1.Text = MB(disk1WritesPerSec.NextValue()).ToString("0.00") + "MB/s";
 
-            labelReadDisk2.Text = ((disk2ReadsPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
-            labelWriteDisk2.Text = ((disk2WritesPerSec.NextValue() / 1024) / 1024).ToString("0.00") + "MB/s";
+            labelReadDisk2.Text = MB(disk2ReadsPerSec.NextValue()).ToString("0.00") + "MB/s";
+            labelWriteDisk2.Text = MB(disk2WritesPerSec.NextValue()).ToString("0.00") + "MB/s";
+
+            labelSpaceDisk0.Text = GB(drives[0].TotalFreeSpace) + "/" + GB(drives[0].TotalSize) + " GB";
+
+            labelSpaceDisk1.Text = GB(drives[1].TotalFreeSpace) + "/" + GB(drives[1].TotalSize) + " GB";
+
+            labelSpaceDisk2.Text = GB(drives[2].TotalFreeSpace) + "/" + GB(drives[2].TotalSize) + " GB";
+        }
+
+        private long GB(long bytes)
+        {
+            return (((bytes / 1024) / 1024) / 1024);
+        }
+
+        private float MB(float bytes)
+        {
+            return ((bytes / 1024) / 1024);
         }
 
         private void UpdateVisuals()

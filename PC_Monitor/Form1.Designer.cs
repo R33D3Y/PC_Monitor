@@ -79,6 +79,9 @@
             this.geckoWebBrowserCalc = new Gecko.GeckoWebBrowser();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.geckoWebBrowserYoutube = new Gecko.GeckoWebBrowser();
+            this.labelSpaceDisk0 = new System.Windows.Forms.Label();
+            this.labelSpaceDisk1 = new System.Windows.Forms.Label();
+            this.labelSpaceDisk2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -432,6 +435,7 @@
             // 
             // groupBoxDisk2
             // 
+            this.groupBoxDisk2.Controls.Add(this.labelSpaceDisk2);
             this.groupBoxDisk2.Controls.Add(this.progressBarDisk2);
             this.groupBoxDisk2.Controls.Add(this.label11);
             this.groupBoxDisk2.Controls.Add(this.labelReadDisk2);
@@ -489,6 +493,7 @@
             // 
             // groupBoxDisk1
             // 
+            this.groupBoxDisk1.Controls.Add(this.labelSpaceDisk1);
             this.groupBoxDisk1.Controls.Add(this.progressBarDisk1);
             this.groupBoxDisk1.Controls.Add(this.label10);
             this.groupBoxDisk1.Controls.Add(this.labelReadDisk1);
@@ -546,6 +551,7 @@
             // 
             // groupBoxDisk0
             // 
+            this.groupBoxDisk0.Controls.Add(this.labelSpaceDisk0);
             this.groupBoxDisk0.Controls.Add(this.progressBarDisk0);
             this.groupBoxDisk0.Controls.Add(this.label7);
             this.groupBoxDisk0.Controls.Add(this.labelReadDisk0);
@@ -789,6 +795,36 @@
             this.geckoWebBrowserYoutube.TabIndex = 1;
             this.geckoWebBrowserYoutube.UseHttpActivityObserver = false;
             // 
+            // labelSpaceDisk0
+            // 
+            this.labelSpaceDisk0.AutoSize = true;
+            this.labelSpaceDisk0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpaceDisk0.Location = new System.Drawing.Point(102, 86);
+            this.labelSpaceDisk0.Name = "labelSpaceDisk0";
+            this.labelSpaceDisk0.Size = new System.Drawing.Size(78, 13);
+            this.labelSpaceDisk0.TabIndex = 10;
+            this.labelSpaceDisk0.Text = "1000/1000 GB";
+            // 
+            // labelSpaceDisk1
+            // 
+            this.labelSpaceDisk1.AutoSize = true;
+            this.labelSpaceDisk1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpaceDisk1.Location = new System.Drawing.Point(102, 87);
+            this.labelSpaceDisk1.Name = "labelSpaceDisk1";
+            this.labelSpaceDisk1.Size = new System.Drawing.Size(78, 13);
+            this.labelSpaceDisk1.TabIndex = 11;
+            this.labelSpaceDisk1.Text = "1000/1000 GB";
+            // 
+            // labelSpaceDisk2
+            // 
+            this.labelSpaceDisk2.AutoSize = true;
+            this.labelSpaceDisk2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpaceDisk2.Location = new System.Drawing.Point(105, 86);
+            this.labelSpaceDisk2.Name = "labelSpaceDisk2";
+            this.labelSpaceDisk2.Size = new System.Drawing.Size(75, 13);
+            this.labelSpaceDisk2.TabIndex = 11;
+            this.labelSpaceDisk2.Text = "1000/1000GB";
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -880,6 +916,9 @@
         private System.Windows.Forms.Label labelReadDisk1;
         private System.Windows.Forms.Label labelWriteDisk1;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelSpaceDisk2;
+        private System.Windows.Forms.Label labelSpaceDisk1;
+        private System.Windows.Forms.Label labelSpaceDisk0;
     }
 }
 
