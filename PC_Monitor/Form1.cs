@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace PC_Monitor
@@ -54,6 +55,10 @@ namespace PC_Monitor
 
             UpdateVisuals();
 
+            ProgressBarSetup(progressBarDisk0, drives[0], labelSpaceDisk0);
+            ProgressBarSetup(progressBarDisk1, drives[1], labelSpaceDisk1);
+            ProgressBarSetup(progressBarDisk2, drives[2], labelSpaceDisk2);
+
             timer1.Interval = 1000;
             timer1.Start();
         }
@@ -70,12 +75,6 @@ namespace PC_Monitor
 
             labelReadDisk2.Text = MB(disk2ReadsPerSec.NextValue()).ToString("0.00") + "MB/s";
             labelWriteDisk2.Text = MB(disk2WritesPerSec.NextValue()).ToString("0.00") + "MB/s";
-
-            labelSpaceDisk0.Text = GB(drives[0].TotalFreeSpace) + "/" + GB(drives[0].TotalSize) + " GB";
-
-            labelSpaceDisk1.Text = GB(drives[1].TotalFreeSpace) + "/" + GB(drives[1].TotalSize) + " GB";
-
-            labelSpaceDisk2.Text = GB(drives[2].TotalFreeSpace) + "/" + GB(drives[2].TotalSize) + " GB";
         }
 
         private long GB(long bytes)
@@ -86,6 +85,33 @@ namespace PC_Monitor
         private float MB(float bytes)
         {
             return ((bytes / 1024) / 1024);
+        }
+
+        private void ProgressBarSetup(ProgressBar pb, DriveInfo di, Label l)
+        {
+            long totalSpace = GB(di.TotalSize);
+            long freeSpace = GB(di.TotalFreeSpace);
+            long usedSpace = (int)totalSpace - (int)freeSpace;
+
+            l.Text = usedSpace + "/" + totalSpace + " GB";
+
+            pb.Maximum = (int)totalSpace;
+            pb.Value = (int)usedSpace;
+
+            if (usedSpace >= (totalSpace * 0.75))
+            {
+                pb.SetState(2); // Red
+            }
+
+            else if (usedSpace >= (totalSpace * 0.5))
+            {
+                pb.SetState(3); // Yellow
+            }
+
+            else
+            {
+                pb.SetState(1); // Green
+            }
         }
 
         private void UpdateVisuals()
@@ -137,6 +163,7 @@ namespace PC_Monitor
                     ramAvailable = (int)hardware.Sensors[2].Value;
                 }
                 
+                /*
                 if (hardware.HardwareType.ToString().ToLower().Contains("hdd"))
                 {
                     foreach (ISensor sensor in hardware.Sensors)
@@ -163,7 +190,7 @@ namespace PC_Monitor
                             hddCount++;
                         }
                     }
-                }
+                }*/
 
                 /*
                 foreach (ISensor sensor in hardware.Sensors)
@@ -296,6 +323,19 @@ namespace PC_Monitor
             {
                 tempLimit = msg.GetDiff();
             }
+        }
+    }
+
+    //https://stackoverflow.com/questions/778678/how-to-change-the-color-of-progressbar-in-c-sharp-net-3-5
+
+    public static class ModifyProgressBarColor
+    {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
+        static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
+
+        public static void SetState(this ProgressBar pBar, int state)
+        {
+            SendMessage(pBar.Handle, 1040, (IntPtr)state, IntPtr.Zero);
         }
     }
 }
